@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Sitemap: https://attendancecalculator.site/sitemap.xml
+
+# Allow all bots to index the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Prevent access to admin areas
+Disallow: /admin/
+Disallow: /private/

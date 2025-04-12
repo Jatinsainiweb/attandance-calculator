@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator - Check 75% Attendance Easily</title>
+    <meta name="description" content="Use our free Attendance Calculator to find your attendance percentage and see if you meet the 75% rule. Perfect for students of all colleges & universities.">
+    <meta name="keywords" content="attendance calculator, attendance percentage calculator, 75 percent attendance calculator, how to calculate attendance percentage, vit attendance calculator, kl attendance calculator, calculate attendance, student attendance calculator, how to calculate average attendance, attendance calculator for students, how to calculate attendance in excel, average monthly attendance calculator, attendance percentage formula, calculate 75% attendance, college attendance calculator">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Attendance Calculator - Check 75% Attendance Easily">
+    <meta property="og:description" content="Use our free Attendance Calculator to find your attendance percentage and see if you meet the 75% rule. Perfect for students of all colleges & universities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://attendancecalculator.site/">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Attendance Calculator - Check 75% Attendance Easily">
+    <meta name="twitter:description" content="Use our free Attendance Calculator to find your attendance percentage and see if you meet the 75% rule. Perfect for students of all colleges & universities.">
+    
+    <!-- Additional Meta Tags -->
+    <link rel="canonical" href="https://attendancecalculator.site/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="AttendanceCalc">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Attendance Calculator",
+        "description": "Use our free Attendance Calculator to find your attendance percentage and see if you meet the 75% rule. Perfect for students of all colleges & universities.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                AttendanceCalc
+            </div>
+            <div class="nav-menu">
+                <a href="#calculator" class="nav-link">Calculator</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-container">
+            <h1>Attendance Calculator</h1>
+            <p class="hero-subtitle">Track your attendance, stay above 75%, and never miss an exam. Perfect for Indian college students at VIT, KL University, and more.</p>
+            <div class="hero-cta">
+                <a href="#calculator" class="primary-btn">Calculate Now</a>
+                <a href="#features" class="secondary-btn">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">75%</span>
+                    <span class="stat-label">Target</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="calculator" class="calculator-section">
+            <div class="section-container">
+                <div class="calculator-grid">
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <i class="fas fa-calculator"></i>
+                            <h2>Calculate Attendance</h2>
+                        </div>
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label for="total">Total Classes</label>
+                                <div class="input-group">
+                                    <i class="fas fa-list-ol"></i>
+                                    <input type="number" id="total" placeholder="Enter total classes">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="attended">Classes Attended</label>
+                                <div class="input-group">
+                                    <i class="fas fa-user-check"></i>
+                                    <input type="number" id="attended" placeholder="Enter attended classes">
+                                </div>
+                            </div>
+                            <button onclick="calculateAttendance()" class="calculate-btn">
+                                Calculate Percentage
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="result" class="result-card hidden">
+                            <div class="result-header">
+                                <h3>Your Attendance</h3>
+                                <span class="percentage">0%</span>
+                            </div>
+                            <div class="result-status">
+                                <div class="status-bar">
+                                    <div class="status-fill"></div>
+                                </div>
+                                <p class="status-text"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <i class="fas fa-bullseye"></i>
+                            <h2>Reverse Calculator</h2>
+                        </div>
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label for="currentTotal">Current Total Classes</label>
+                                <div class="input-group">
+                                    <i class="fas fa-list"></i>
+                                    <input type="number" id="currentTotal" placeholder="Current total classes">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="currentAttended">Current Attended Classes</label>
+                                <div class="input-group">
+                                    <i class="fas fa-check"></i>
+                                    <input type="number" id="currentAttended" placeholder="Current attended classes">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="targetPercentage">Target Percentage</label>
+                                <div class="input-group">
+                                    <i class="fas fa-percent"></i>
+                                    <input type="number" id="targetPercentage" value="75" placeholder="Target percentage">
+                                </div>
+                            </div>
+                            <button onclick="calculateRequired()" class="calculate-btn">
+                                Calculate Required Classes
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="requiredResult" class="result-card hidden">
+                            <div class="result-header">
+                                <h3>Required Classes</h3>
+                                <span class="required-number">0</span>
+                            </div>
+                            <p class="required-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-container">
+                <div class="content-block">
+                    <h2>📚 What is an Attendance Calculator?</h2>
+                    <p>An attendance calculator is an online tool that helps students and teachers calculate the percentage of attendance over a period of time. It uses a simple formula:</p>
+                    <div class="formula-box">
+                        <code>Attendance Percentage = (Attended Classes / Total Classes) × 100</code>
+                    </div>
+                    <div class="benefits-list">
+                        <h3>This tool helps you:</h3>
+                        <ul>
+                            <li>Enter total and attended classes</li>
+                            <li>Instantly get your attendance percentage</li>
+                            <li>Know how many classes you need to attend to reach 75%</li>
+                            <li>Plan bunking or extra classes accordingly</li>
+                        </ul>
+                    </div>
+                    <div class="institution-list">
+                        <h3>Perfect for institutions like:</h3>
+                        <ul>
+                            <li>VIT University (Vellore Institute of Technology)</li>
+                            <li>KL University</li>
+                            <li>CBSE and State Boards</li>
+                            <li>Private colleges with strict policies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>✏️ How to Calculate Attendance Percentage?</h2>
+                    <p>Understanding the manual method helps you appreciate the calculator's convenience:</p>
+                    <div class="formula-section">
+                        <h3>✅ Formula:</h3>
+                        <div class="formula-box">
+                            <code>Attendance % = (Number of Attended Classes / Total Classes Held) × 100</code>
+                        </div>
+                        <div class="example-box">
+                            <h4>📌 Example:</h4>
+                            <p>If 95 out of 120 classes were attended:</p>
+                            <code>(95 / 120) × 100 = 79.16%</code>
+                            <p>This means your attendance is 79.16%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🧮 75 Percent Attendance Rule</h2>
+                    <p>Most colleges in India follow the 75% attendance rule. This means students must have at least 75% attendance in every subject to:</p>
+                    <ul class="requirements-list">
+                        <li>Sit for semester exams</li>
+                        <li>Avoid detainment</li>
+                        <li>Earn internal marks</li>
+                        <li>Maintain academic discipline</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2>📉 Excel Calculation Method</h2>
+                    <div class="excel-guide">
+                        <h3>Formula in Excel:</h3>
+                        <div class="formula-box">
+                            <code>=(Attended/Total)*100</code>
+                        </div>
+                        <div class="example-box">
+                            <h4>Example Setup:</h4>
+                            <ul>
+                                <li>A1: Total Classes = 100</li>
+                                <li>B1: Attended Classes = 76</li>
+                                <li>C1: =<code>(B1/A1)*100</code> → 76%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section bg-light">
+            <div class="section-container">
+                <div class="content-block">
+                    <h2>🎯 Understanding Attendance Tracking in Indian Universities</h2>
+                    <p>In the Indian education system, particularly in institutions like VIT (Vellore Institute of Technology), KL University, and other prominent colleges, attendance tracking plays a crucial role in academic assessment. The standard 75% attendance requirement isn't just a number—it's a fundamental aspect of ensuring consistent learning and academic discipline.</p>
+                    
+                    <div class="info-box">
+                        <h3>📊 Why 75% Attendance Matters?</h3>
+                        <ul>
+                            <li><strong>Academic Performance:</strong> Regular attendance has been directly linked to better academic performance and understanding of subjects.</li>
+                            <li><strong>Internal Assessment:</strong> Many colleges include attendance as a component of internal marks or continuous assessment.</li>
+                            <li><strong>Exam Eligibility:</strong> Students need minimum attendance to appear for semester-end examinations.</li>
+                            <li><strong>Placement Opportunities:</strong> Companies often consider attendance records during campus placements.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>📱 Digital Attendance Management</h2>
+                    <p>Modern colleges have moved beyond traditional attendance registers to digital systems. Our attendance calculator complements these systems by helping students:</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <h4>🔄 Real-time Tracking</h4>
+                            <p>Monitor your attendance percentage as the semester progresses, helping you make informed decisions about attending classes.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 Percentage Forecasting</h4>
+                            <p>Calculate how future attendance or absences will affect your overall percentage.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>⚡ Quick Calculations</h4>
+                            <p>Instantly know if you're meeting the minimum attendance requirements across different subjects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>📘 Subject-wise Attendance Management</h2>
+                    <p>Different subjects may have varying attendance requirements based on:</p>
+                    <ul>
+                        <li><strong>Theory vs. Practical Sessions:</strong> Lab sessions often require higher attendance</li>
+                        <li><strong>Credit Hours:</strong> Subjects with more credits might have stricter attendance policies</li>
+                        <li><strong>Department Policies:</strong> Some departments may have additional attendance requirements</li>
+                    </ul>
+                    
+                    <div class="tips-box">
+                        <h3>💡 Pro Tips for Maintaining Attendance</h3>
+                        <ol>
+                            <li>Use our calculator at the beginning of each semester to plan your attendance strategy</li>
+                            <li>Calculate the minimum classes needed to maintain 75% before taking leaves</li>
+                            <li>Keep track of both theory and practical session attendance separately</li>
+                            <li>Account for medical emergencies by maintaining buffer attendance</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>🏫 Institution-specific Guidelines</h2>
+                    <p>Our attendance calculator is particularly useful for students from various institutions:</p>
+                    
+                    <div class="institution-guidelines">
+                        <div class="guideline-item">
+                            <h4>VIT University</h4>
+                            <ul>
+                                <li>Strict 75% attendance requirement</li>
+                                <li>Separate tracking for theory and lab sessions</li>
+                                <li>Attendance marks in continuous assessment</li>
+                            </ul>
+                        </div>
+                        <div class="guideline-item">
+                            <h4>KL University</h4>
+                            <ul>
+                                <li>Digital attendance tracking system</li>
+                                <li>Regular attendance updates to parents</li>
+                                <li>Minimum attendance for placement eligibility</li>
+                            </ul>
+                        </div>
+                        <div class="guideline-item">
+                            <h4>Other Engineering Colleges</h4>
+                            <ul>
+                                <li>AICTE mandated attendance requirements</li>
+                                <li>Semester-wise attendance calculation</li>
+                                <li>Condonation rules for borderline cases</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>📊 Advanced Attendance Calculations</h2>
+                    <p>Beyond basic attendance percentage, our calculator helps with:</p>
+                    
+                    <div class="calculation-types">
+                        <div class="calc-item">
+                            <h4>Weighted Attendance</h4>
+                            <p>For subjects with theory and practical components:</p>
+                            <div class="formula-box">
+                                <code>Final % = (Theory % × 0.7) + (Practical % × 0.3)</code>
+                            </div>
+                        </div>
+                        <div class="calc-item">
+                            <h4>Makeup Classes</h4>
+                            <p>Calculate required additional classes:</p>
+                            <div class="formula-box">
+                                <code>Required Classes = ((Target % × Total) - Attended) / (1 - Target %)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>📱 Mobile-First Attendance Tracking</h2>
+                    <p>Our calculator is designed for the modern student with features like:</p>
+                    <ul>
+                        <li><strong>Responsive Design:</strong> Works perfectly on smartphones and tablets</li>
+                        <li><strong>Offline Access:</strong> Calculate attendance even without internet</li>
+                        <li><strong>Quick Shortcuts:</strong> Bookmark for instant access</li>
+                        <li><strong>Share Results:</strong> Easy sharing with classmates and faculty</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="section-container">
+                <h2 class="section-title">📊 Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Works perfectly on all devices</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Reverse Calculator</h3>
+                        <p>Plan your future attendance</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Institution Support</h3>
+                        <p>VIT, KL, Amity, SRM & more</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h3>Excel Integration</h3>
+                        <p>Easy data export options</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Instant Results</h3>
+                        <p>Calculate in seconds</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Multi-User</h3>
+                        <p>For students & teachers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="section-container">
+                <h2 class="section-title">🔍 Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>How is a student's attendance % defined?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Use the formula: (Attended / Total Classes) × 100 or just use our attendance percentage calculator to get an instant result.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>How to calculate 75 percent attendance?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Multiply your total planned classes by 0.75. For example, if there are 100 classes, you need to attend 75 classes to maintain 75% attendance.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>What happens if I fall below 75% attendance?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <ul>
+                                <li>You may be ineligible for exams</li>
+                                <li>You might need to submit medical documents</li>
+                                <li>Risk of detainment or being marked as short-attendance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="mailto:jatinsainijio73@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AttendanceCalc - All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
